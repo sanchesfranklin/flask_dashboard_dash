@@ -17,3 +17,7 @@ pip install -r requirements.txt
 ```
 
 Este projeto utiliza o Pylint para padronizar o código python, afim de seguirmos as melhores práticas de codificação.
+
+Até o momento nossa página está dessa forma:
+
+<img src="./app/static/assets/img/tela_inicial.png">
