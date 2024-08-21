@@ -1,8 +1,8 @@
+#pylint: disable=import-outside-toplevel
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
-from app.main.routes import bp as main_bp
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -14,6 +14,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
 
+    from app.main.routes import bp as main_bp
     app.register_blueprint(main_bp)
 
     return app
