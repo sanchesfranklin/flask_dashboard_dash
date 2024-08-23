@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='roles/roles.css') }}" type="text/css">
+<div class="container mt-4">
+    <div class="row titulo-botao-criar">
+        <div class="col">
+            <h1>Lista de Funções</h1>
+        </div>
+        <div class="col button-criar">
+            <a href="{{ url_for('roles.create_role') }}" class="btn btn-primary">Criar</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.name }}</td>
+                <td>{{ role.description }}</td>
+                <td>
+                    <a href="{{ url_for('roles.edit_role', role_id=role.id) }}" class="btn btn-primary btn-sm">Editar</a>
+                    <form action="{{ url_for('roles.delete_role', role_id=role.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir esta função?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

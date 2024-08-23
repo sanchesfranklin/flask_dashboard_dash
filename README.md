@@ -21,3 +21,9 @@ Este projeto utiliza o Pylint para padronizar o código python, afim de seguirmo
 Até o momento nossa página está dessa forma:
 
 <img src="./app/static/assets/img/tela_inicial.png">
+
+
+Executar a aplicação em modo debug
+```
+python -m flask --app app --debug run
+```
