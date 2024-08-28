@@ -1,7 +1,8 @@
 from flask import render_template, flash, redirect, url_for, Blueprint
 from app.forms.role_form import RoleForm
 from app.models.role import Role
-from app.services.roles_service import delete_role_service, edit_role_service, list_all_roles, save_role
+from app.services.roles_service import\
+    delete_role_service, edit_role_service, list_all_roles, save_role
 
 bp_roles = Blueprint('roles', __name__)
 
